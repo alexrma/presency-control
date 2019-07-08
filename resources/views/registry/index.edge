@@ -9,7 +9,8 @@
 
     <div class="field has-addons">
       <div class="control is-expanded">
-        <input class="input" type="text" name="description" value="{{ old('description', '') }}" placeholder="Descripción">
+        <input class="input" type="time" name="hour" value="now">
+        <input class="input" type="text" name="description"  placeholder="Descripción">
       </div>
       <div class="control">
         <button type="submit" class="button is-primary">
@@ -34,8 +35,8 @@
         <thead>
           <tr>
             <th>SN</th>
-            <th>Descripción</th>
-            <th>Action</th> 
+            <th>Hora</th>
+            <th>Descripción</th> 
           </tr>
         </thead>
         <tbody>
@@ -44,6 +45,9 @@
               <td>
                 {{ ($loop.index + 1) }}
               </td>
+              <td>
+                {{ registry.hour }}
+              </td> 
               <td>
                 {{ registry.description }}
               </td>
@@ -64,4 +68,6 @@
         </tbody>
       </table>
   </div>
+  {{ script('../public/js/test.js') }}
 @endsection
+

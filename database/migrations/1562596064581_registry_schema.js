@@ -8,6 +8,7 @@ class RegistrySchema extends Schema {
     this.create('registries', (table) => {
       table.increments()
       table.string('description')
+      table.string('hour')
       table.timestamps()
     })
   }

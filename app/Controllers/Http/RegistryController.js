@@ -20,7 +20,7 @@ class RegistryController {
    */
   async index ({ request, response, view }) {
     const registries = await Registry.all()
-    console.log(registries);
+    
     return view.render('registry.index', { registries: registries.toJSON() })
   }
 
@@ -46,7 +46,8 @@ class RegistryController {
    */
   async store ({ request, response , session }) {
     const validation = await validate(request.all(), {
-      description: 'required|min:3|max:255'
+      description: 'required|min:3|max:255',
+      hour: 'required|min:3|max:255',
     })
   
     // show error messages upon validation fail
@@ -60,6 +61,7 @@ class RegistryController {
     // persist to database
     const registry = new Registry()
     registry.description = request.input('description')
+    registry.hour = request.input('hour')
     await registry.save()
   
     // Fash success message to session
