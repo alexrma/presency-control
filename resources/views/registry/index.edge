@@ -9,8 +9,15 @@
 
     <div class="field has-addons">
       <div class="control is-expanded">
-        <input class="input" type="time" name="hour" value="now">
-        <input class="input" type="text" name="description"  placeholder="Descripción">
+        <input id ="now" class="input" type="text" name="hour" class="disable">
+       
+        <select id="mon_select" name="description" class="input"  >
+            <option>Entrada</option>
+            <option>Salida</option>
+            <option>Ir a Comer</option>
+            <option>Vuelta de comer</option>
+           
+          </select>
       </div>
       <div class="control">
         <button type="submit" class="button is-primary">
@@ -68,6 +75,6 @@
         </tbody>
       </table>
   </div>
-  {{ script('../public/js/test.js') }}
+  {{ script('/js/test.js') }}
 @endsection
 
